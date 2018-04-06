@@ -33,9 +33,9 @@ vocab = sorted(vectorizer.vocabulary_.items(), key=operator.itemgetter(1))
 vocab = [word[0] for word in vocab]
 # print(vocab)
 
-from glove import Glove
+import glove
 
-model = Glove(dic, d = 100, alpha=0.75, x_max=100.0)
+model = glove.Glove(dic, d = 100, alpha=0.75, x_max=100.0)
 for epoch in range(25):
     err = model.train(batch_size=200, workers=4)
     print("epoch %d, error %.3f" % (epoch, err), flush=True)
